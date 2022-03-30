@@ -86,21 +86,32 @@ class _LoginScreenState extends State<LoginScreen> {
     return Padding(
       padding: EdgeInsets.all(16.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Este es el pinche texto arriba del otro pinche texto",
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: 28.0,
-                fontWeight: FontWeight.bold),
+          SizedBox(
+            height: 88.0,
+          ),
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: CircleAvatar(
+                backgroundImage: AssetImage('assets/UTTcoyotemedio.png'),
+                radius: 70),
+          ),
+          SizedBox(
+            height: 88.0,
           ),
           Text(
-            "Este es un pinche texto",
+            "Bienvenido a la Aplicacion",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 30.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            "Ingrese sus Credenciales",
             style: TextStyle(
                 color: Colors.black,
-                fontSize: 44.0,
+                fontSize: 20.0,
                 fontWeight: FontWeight.bold),
           ),
           SizedBox(
@@ -110,7 +121,7 @@ class _LoginScreenState extends State<LoginScreen> {
             controller: _emailController,
             keyboardType: TextInputType.emailAddress,
             decoration: const InputDecoration(
-              hintText: "Tu pinche correo",
+              hintText: "Correo Electronico",
               prefixIcon: Icon(Icons.mail, color: Colors.black),
             ),
           ),
@@ -121,7 +132,7 @@ class _LoginScreenState extends State<LoginScreen> {
             controller: _passwordController,
             obscureText: true,
             decoration: const InputDecoration(
-              hintText: "Y la pinche contraseña",
+              hintText: "Contraseña",
               prefixIcon: Icon(Icons.security, color: Colors.black),
             ),
           ),
@@ -129,7 +140,7 @@ class _LoginScreenState extends State<LoginScreen> {
             height: 12.0,
           ),
           Text(
-            "No olvides tu contraseña wey",
+            "No olvides tus credenciales.",
             style: TextStyle(color: Colors.blue),
           ),
           SizedBox(
@@ -152,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       MaterialPageRoute(builder: (context) => ProfileScreen()));
                 }
               },
-              child: Text("Login"),
+              child: Text("Iniciar Sesión"),
             ),
           )
         ],

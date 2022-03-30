@@ -11,7 +11,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("Ya hiciste login ñetas")),
+      body: Center(
+          child: Text("Bienvenido a una pagina en Blanco",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 44.0,
+                  fontWeight: FontWeight.bold))),
     );
   }
 }
