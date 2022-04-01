@@ -1,11 +1,19 @@
+import 'dart:math';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:proyectotest/blocs/bloc.dart';
 import 'package:proyectotest/profile_screen.dart';
+import 'package:proyectotest/screens/screens.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MultiBlocProvider(
+    providers: [BlocProvider(create: (context) => GpsBloc())],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -86,18 +94,13 @@ class _LoginScreenState extends State<LoginScreen> {
     return Padding(
       padding: EdgeInsets.all(16.0),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
-            height: 88.0,
-          ),
           Padding(
             padding: EdgeInsets.all(20),
             child: CircleAvatar(
                 backgroundImage: AssetImage('assets/UTTcoyotemedio.png'),
                 radius: 70),
-          ),
-          SizedBox(
-            height: 88.0,
           ),
           Text(
             "Bienvenido a la Aplicacion",
@@ -144,26 +147,30 @@ class _LoginScreenState extends State<LoginScreen> {
             style: TextStyle(color: Colors.blue),
           ),
           SizedBox(
-            height: 88.0,
+            height: 30.0,
           ),
           Container(
-            width: double.infinity,
-            child: RawMaterialButton(
-              fillColor: Color.fromARGB(255, 146, 146, 146),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0)),
-              onPressed: () async {
-                User? user = await loginUsinEmailPassword(
-                    email: _emailController.text,
-                    password: _passwordController.text,
-                    context: context);
-                print(user);
-                if (user != null) {
-                  Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => ProfileScreen()));
-                }
-              },
-              child: Text("Iniciar Sesión"),
+            child: Container(
+              width: double.infinity,
+              child: RawMaterialButton(
+                fillColor: Color.fromARGB(255, 146, 146, 146),
+                elevation: 0.0,
+                padding: EdgeInsets.symmetric(vertical: 20.0),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12.0)),
+                onPressed: () async {
+                  User? user = await loginUsinEmailPassword(
+                      email: _emailController.text,
+                      password: _passwordController.text,
+                      context: context);
+                  print(user);
+                  if (user != null) {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => LoadinfScreen()));
+                  }
+                },
+                child: Text("Iniciar Sesión"),
+              ),
             ),
           )
         ],
