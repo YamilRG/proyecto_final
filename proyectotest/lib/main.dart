@@ -9,7 +9,9 @@ import 'package:proyectotest/blocs/bloc.dart';
 import 'package:proyectotest/profile_screen.dart';
 import 'package:proyectotest/screens/screens.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MultiBlocProvider(
     providers: [BlocProvider(create: (context) => GpsBloc())],
     child: const MyApp(),
@@ -18,7 +20,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

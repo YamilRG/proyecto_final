@@ -12,9 +12,7 @@ class LoadinfScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(body: BlocBuilder<GpsBloc, GpsState>(
       builder: (context, state) {
-        return state.isAllGranted
-            ? const ProfileScreen()
-            : const gps_access_screena();
+        return TaskCheckList();
       },
     ));
   }

@@ -39,6 +39,7 @@ dependencies:
   geolocator: ^8.2.0
   http: null
   permission_handler: ^9.2.0
+  firebase_database:  
 
 dev_dependencies:
   flutter_test:
