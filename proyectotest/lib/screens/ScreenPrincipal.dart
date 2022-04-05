@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:proyectotest/main.dart';
 import 'package:proyectotest/profile_screen.dart';
 import 'package:proyectotest/screens/screens.dart';
+import 'package:proyectotest/screens/visualizacion.dart';
 
 class ScreenPrincipal extends StatefulWidget {
   const ScreenPrincipal({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _ScreenPrincipalState extends State<ScreenPrincipal> {
       case 0:
         return TaskCheckList();
       case 1:
-        return ProfileScreen();
+        return VisualizacionFb();
       case 2:
         return HomePage();
     }
