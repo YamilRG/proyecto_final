@@ -45,9 +45,6 @@ class _TaskCheckListState extends State<TaskCheckList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("UnaBarra"),
-      ),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection("MyTodos").snapshots(),
         builder: (context, snapshot) {
@@ -106,7 +103,7 @@ class _TaskCheckListState extends State<TaskCheckList> {
                 return AlertDialog(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
-                  title: const Text("Add Todo"),
+                  title: const Text("Tareas por Añadir:"),
                   content: Container(
                     width: 400,
                     height: 100,
@@ -134,7 +131,7 @@ class _TaskCheckListState extends State<TaskCheckList> {
                           });
                           Navigator.of(context).pop();
                         },
-                        child: const Text("Add"))
+                        child: const Text("Añadir"))
                   ],
                 );
               });
